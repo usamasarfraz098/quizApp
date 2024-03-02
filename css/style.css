@@ -1,33 +1,72 @@
-*{
+/* starter  */
+* {
     margin: 0%;
     padding: 0%;
     box-sizing: border-box;
     font-size: 20px;
+    /* display: inline-block; */
 }
-img{
+
+img {
     width: 100%;
 }
-.nav-logo{
+
+h1 {
+    font-size: 32px;
+    font-weight: bold;
+    margin: 0;
+}
+
+h2 {
+    text-align: center;
+}
+
+.paragraph {
+    font-size: 14px;
+    font-weight: 100;
+    line-height: 20px;
+    letter-spacing: 0.5px;
+    margin: 20px 0 30px;
+}
+
+span {
+    font-size: 12px;
+}
+
+a {
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    margin: 15px 0;
+}
+
+
+/* nav  */
+.nav-logo {
     width: 50px;
     margin-top: 20px;
 }
-.nav-logo-text{
+
+.nav-logo-text {
     font-size: 25px;
     font-weight: 900;
 }
-.nav{
+
+.nav {
     padding: 0 20px;
     display: flex;
     justify-content: space-between;
     width: 100%;
     height: 50px;
-    align-items: center;  
+    align-items: center;
 }
-.btns{
+
+.btns {
     display: flex;
     justify-content: space-between;
     width: 150px;
 }
+
 .btn {
     width: 70px;
     height: 25px;
@@ -40,49 +79,269 @@ img{
     cursor: pointer;
     box-shadow: 2px 2px #888888;
     align-items: center;
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition effect */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    /* Smooth transition effect */
     position: relative;
     overflow: hidden;
     color: aliceblue;
 }
+
 .btn:hover {
-    background-color: #2980b9; 
+    background-color: #2980b9;
     color: black;
 }
 
 .btn:active {
-    transform: translateY(3px); 
+    transform: scale(0.7);
+}
+.main{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+.container {
+    background-image: linear-gradient(to top, #3498db 70%, #4a98cb 100%);
+    position: absolute;
+
 }
 
-.container{
-    background-image: linear-gradient(to top, #3498db 70%, #4a98cb 100%); /* Change background color from bottom to top */
-
-}
 /* section1 css */
-section{
-  display: grid;
-  grid-template-columns: repeat(2,1fr);
+section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    min-height: 100vh;
 
 }
+
 /* section left  */
-.section-left{
+.section-left {
     display: flex;
     width: 70%;
     height: 100%;
     justify-content: center;
     align-items: center;
     margin: auto;
-    
+
 }
-.section-left-heading{
+
+.section-left-heading {
     font-size: 50px;
     font-weight: 900;
     color: rgb(26, 24, 54);
 
 
 }
-.section-left-heading p{
+
+.section-left-heading p {
     font-size: 40px;
     font-weight: 500;
 
+}
+
+/* add classes  */
+.display{
+    display: none;
+    visibility: none;
+    opacity: 0;
+}
+.opacity{
+    opacity: 0;
+    z-index: -10;
+}
+
+/* login page style  */
+.container1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    width: 100%;
+}
+
+.close{
+    position: absolute;
+    top: 1%;
+    right: -16%;
+    width: 20%;
+    z-index: 101;
+    cursor: pointer;
+}
+
+button {
+    border-radius: 20px;
+    border: 1px solid #4a98cb;
+    background-color: #4a98cb;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 12px 45px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: transform 80ms ease-in;
+    cursor: pointer;
+}
+button:active {
+    transform: scale(0.95);
+}
+button:focus {
+    outline: none;
+}
+button.ghost {
+  
+    background-color: #4a98cb;
+    
+}
+form {
+    background-color:#fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 50px;
+    height: 100%;
+    text-align: center;
+}
+
+input {
+    background-color: transparent;
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding: 12px 15px;
+    margin: 8px 0;
+    width: 100%;
+}
+
+
+.login-page {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    position: relative;
+    overflow: hidden;
+    width: 768px;
+    max-width: 100%;
+    min-height: 480px;
+}
+
+.form-container {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    transition: all 0.6s ease-in-out;
+}
+
+.sign-in-container {
+    left: 0;
+    width: 50%;
+    z-index: 2;
+}
+
+/*slide effect kaliya*/
+
+.sign-up-container {
+    left: 0;
+    width: 50%;
+    opacity: 0;
+    z-index: 1;
+}
+
+.login-page.right-panel-active .sign-up-container {
+    transform: translateX(100%);
+    opacity: 1;
+    z-index: 3;
+}
+
+.overlay-container {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    transition: transform 0.6s ease-in-out;
+    z-index: 100;
+}
+
+.login-page.right-panel-active .overlay-container {
+    transform: translateX(-100%);
+}
+
+.overlay {
+    background: #4a98cb;
+    background: linear-gradient(to right, #3498db, #4a98cb);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0 0;
+    color: #ffffff;
+    position: relative;
+    left: -100%;
+    height: 100%;
+    width: 200%;
+    transform: translateX(0);
+    transition: transform 0.6s ease-in-out;
+}
+.overlay::after {
+    content: '';
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust the shadow color and opacity as needed */
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.5); /* Add your desired shadow properties */
+}
+
+.login-page.right-panel-active .overlay {
+    transform: translateX(50%);
+}
+
+.overlay-panel {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 40px;
+    text-align: center;
+    top: 0;
+    height: 100%;
+    width: 50%;
+    transform: translateX(0);
+    transition: transform 0.6s ease-in-out;
+    z-index: 2;
+}
+
+.overlay-left {
+    transform: translateX(-20%);
+}
+
+.login-page.right-panel-active .overlay-left {
+    transform: translateX(0);
+}
+
+.overlay-right {
+    right: 0;
+    transform: translateX(0);
+}
+
+.login-page.right-panel-active .overlay-right {
+    transform: translateX(20%);
+}
+
+.social-container {
+    margin: 20px 0;
+}
+
+.social-container a {
+    border: 1px solid #dddddd;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 5px;
+    height: 40px;
+    width: 40px;
 }
