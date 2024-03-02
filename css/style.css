@@ -69,13 +69,13 @@ a {
 
 .btn {
     width: 70px;
-    height: 25px;
+    height: 30px;
     display: flex;
     justify-content: center;
     border-radius: 5px;
     font-size: 15px;
     font-weight: 500;
-    background-color: rgb(26, 24, 54);
+    background-color: #9198e5;
     cursor: pointer;
     box-shadow: 2px 2px #888888;
     align-items: center;
@@ -83,12 +83,12 @@ a {
     /* Smooth transition effect */
     position: relative;
     overflow: hidden;
-    color: aliceblue;
+    color: black;
 }
 
 .btn:hover {
-    background-color: #2980b9;
-    color: black;
+    background-color: #7079d3;
+    color: aliceblue;
 }
 
 .btn:active {
@@ -98,12 +98,12 @@ a {
     position: relative;
     width: 100%;
     height: 100vh;
+    transition: all 0.3s;
 }
 .container {
-    background-image: linear-gradient(to top, #3498db 70%, #4a98cb 100%);
+    background: linear-gradient(#e66465, #9198e5);    /* position: s; */
     position: absolute;
-
-}
+    transition: all 0.3s;}
 
 /* section1 css */
 section {
@@ -172,7 +172,7 @@ section {
 .form-btn{
     border-radius: 20px;
     border: 1px solid #4a98cb;
-    background-color: #4a98cb;
+    background-color: #9198e5;
     color: #ffffff;
     font-size: 12px;
     font-weight: bold;
@@ -190,7 +190,7 @@ section {
 }
 .form-btn.hide {
   
-    background-color: #4a98cb;
+    background-color: #9198e5;
     
 }
 form {
@@ -270,7 +270,7 @@ input {
 
 .overlay {
     background: #4a98cb;
-    background: linear-gradient(to right, #3498db, #4a98cb);
+    background: linear-gradient(#e66465, #9198e5);    /* position: s; */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 0 0;
@@ -345,3 +345,118 @@ input {
     height: 40px;
     width: 40px;
 }
+
+/* front page  */
+
+ .front-page-nav .nav-logo {
+    width: 60px;
+    margin: 0%;
+}
+
+.front-page-nav .nav-logo-text {
+    display: flex;
+    align-items: center;
+}
+.front-page-nav{
+    display: grid;
+    width: 100%;
+    height: 60px;
+    grid-template-columns: 1fr 1fr;
+    padding: 0 20px;
+    background-color: #e66465;
+    padding-top: 10px;
+ }
+ .front-page-nav .nav-logo-text .welcome{
+    font-size: 35px;
+    font-weight: 600;
+    color: #bfc9d1;
+ }
+ .front-page-nav .nav-logo-text .user-name{
+    font-size: 35px;
+    font-weight: 600;
+    color: rgb(26, 24, 54);  
+ }
+ /* front page main content  */
+ .front-page-main-content{
+    background: linear-gradient(#e66465, #9198e5);    /* position: s; */
+    height: 100vh;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    padding: 0 8%;
+}
+
+ .front-page-main-content-left .front-page-main-content-left-heading{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top:40%;
+    height: 50vh;
+
+ }
+ .front-page-main-content-left .front-page-main-content-left-heading .front-page-heading-1{
+   font-size: 40px;
+   font-weight: 520;
+ }
+ .front-page-main-content-left .front-page-main-content-left-heading .front-page-heading-2{
+    font-size: 65px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: rgb(26, 24, 54);  
+
+  }
+  .front-page-main-content-left .front-page-main-content-left-heading .front-page-paragraph{
+    font-size: 20px;
+  }
+
+  /* font page right  */
+  .front-page-main-content-right{
+    display: flex;
+    flex-direction: column;
+  height: 90vh;
+  margin-left: 15%;
+  justify-content: center;
+ }
+ .front-page-main-content-right .front-page-right-img-1,
+ .front-page-main-content-right .front-page-right-img-2,
+ .front-page-main-content-right .front-page-right-img-3,
+ .front-page-main-content-right .front-page-right-img-4
+ {
+    border: 1px solid gray;
+    height: 50px;
+    width: 300px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    background-color: #bfc9d1;
+    cursor: pointer;
+    transition: all 0.3s;
+
+ }
+ 
+ .front-page-main-content-right .front-page-right-img-1:hover,
+ .front-page-main-content-right .front-page-right-img-2:hover,
+ .front-page-main-content-right .front-page-right-img-3:hover,
+ .front-page-main-content-right .front-page-right-img-4:hover
+ {
+  transform: scale(1.05);
+ }
+
+ .front-page-main-content-right .front-page-right-img-1:active,
+ .front-page-main-content-right .front-page-right-img-2:active,
+ .front-page-main-content-right .front-page-right-img-3:active,
+ .front-page-main-content-right .front-page-right-img-4:active
+ {
+  transform: scale(1);
+ }
+ .icon{
+    margin-right: 20px;
+ }
+ .icon-text{
+    font-size: 20px;
+    font-weight: 900;
+ }
+
+
