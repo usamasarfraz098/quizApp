@@ -169,7 +169,7 @@ section {
     cursor: pointer;
 }
 
-button {
+.form-btn{
     border-radius: 20px;
     border: 1px solid #4a98cb;
     background-color: #4a98cb;
@@ -182,13 +182,13 @@ button {
     transition: transform 80ms ease-in;
     cursor: pointer;
 }
-button:active {
+.form-btn:active {
     transform: scale(0.95);
 }
-button:focus {
+.form-btn:focus {
     outline: none;
 }
-button.ghost {
+.form-btn.hide {
   
     background-color: #4a98cb;
     
