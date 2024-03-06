@@ -671,3 +671,123 @@ input[type='radio']{
 .btn1:active {
     transform: scale(0.7);
 }
+
+
+
+@media(max-width:480px) {
+    /* home page section 1 */
+    section {
+      display: grid;
+        grid-template-columns: 0.5fr 1fr;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .section-right{
+        width: 100%;
+       
+      }  
+      img{
+        width: 100%;
+      }
+      .img{
+        width: 300px;
+        margin: auto;
+      }
+      .login-page{
+        width: 90%;
+      }
+      form{
+        padding: 10%;
+      }
+      
+    
+}
+@media (max-width:990px) {
+    /* home page section 1 */
+  section{
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+  }
+  .section-right{
+    width: 50%;
+    margin: auto;
+  }  
+  .section-left-heading{
+    font-size: 30px;
+  }
+  .login-page{
+       
+    width: 80%;
+    height: 50vh;
+    margin: auto;
+}
+.social-container{
+    display: none;
+}
+.form-btn{
+    width: 100px;
+    height: 40px;
+    text-align: center;
+    padding:12px 10px ;
+}
+a,.register-text{
+    display: none;
+}
+.welcome, .user-name{
+    font-size: 10px;
+}
+input {
+    background-color: transparent;
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding: 7px 15px;
+    margin: 8px 0;
+    width: 100%;
+    font-size: 12px;
+}
+
+ /* front page main content  */
+ .front-page-main-content-left .front-page-main-content-left-heading{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top:40%;
+    height: 50vh;
+
+ }
+
+}
+@media (max-width:700px) {
+    /* home page section 1 */
+       .nav-logo{
+        display: none;
+    }
+    .nav .nav-logo-text{
+        font-size: 20px;
+    }
+    
+   .section-right{
+    margin-bottom: 0%;
+    margin-top: 100px;
+   }
+   .section-left{
+    margin-top: 100px;
+   }
+   /* front page media query  */
+   .front-page-main-content{
+    
+    display: flex;
+    flex-direction: column-reverse;
+    padding: 0 8%;
+}
+}
+@media (max-width:790px) {
+    .login-page{
+        width: 80%;
+    }
+}
+
