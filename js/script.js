@@ -1,4 +1,3 @@
-// DOM elements
 const selectedAnswers = [];
 const signUpButton = document.getElementById("signUp");
 const signInButton = document.getElementById("signIn");
@@ -9,8 +8,10 @@ const container1 = document.querySelector('.container1');
 const container= document.querySelector('.container');
 const mainPage=document.querySelector('.front-page')
 const signinBtn = document.querySelector('#signin2');
+const signupBtn=document.querySelector('#signup2')
 const frontPageMain = document.querySelector('.front-page-main-content');
 const questionType = document.querySelectorAll('.front-page-right-img');
+const userName=document.querySelector('.user-name')
 
 // Close function
 const closeFunction = function () {
@@ -18,34 +19,61 @@ const closeFunction = function () {
     container1.classList.add('opacity');
 };
 
-// Event listeners
+// sign in sign up
+const userAccounts = [
+  {name: 'usama', email: 'usama32@gmail.com', password: '12345678'},
+];
 signUpButton.addEventListener("click", () => {
     loginPage.classList.add("right-panel-active");
     console.log("usama");
 });
+signInButton.addEventListener("click", () => {
+  loginPage.classList.remove("right-panel-active");
+  console.log("usama");
+});
+signupBtn.addEventListener('click',function(event){
+  // console.log('sin')
+  event.preventDefault(); 
 
-signinBtn.addEventListener("click", () => {
-    loginPage.classList.remove("right-panel-active");
-    const signinEmail = document.querySelector('#signin_email');
-const signinPassword = document.querySelector('#signin_password');
-    console.log("usama");
-    const email = signinEmail.value;
-    const password = signinPassword.value;
-    console.log(email,password)
+    
+    const nameInput = document.querySelector('#SignupName');
+    const emailInput = document.querySelector('#SignupEmail');
+    const passwordInput = document.querySelector('#SignupPassword');
 
-    // Mock authentication for demonstration purposes
-    if (signinEmail.value === "usamasarfraz23@gmail.com" && signinPassword.value === "12345678") {
-        // User authenticated successfully
-        // Hide login page
-        closeFunction();
+    // user object create 
+    const newUser = {
+      name: nameInput.value,
+      email: emailInput.value,
+      password: passwordInput.value
+  };
 
-        // Display front page
+  userAccounts.push(newUser);
+  nameInput.value = '';
+  emailInput.value = '';
+  passwordInput.value = '';
+  console.log('User created successfully:',userAccounts);
+})
 
-        container.classList.add("display");
-        mainPage.classList.remove('display')
-    } else {
-        // Show error message or handle authentication failure
-        alert("Invalid email or password. Please try again.");}
+signinBtn.addEventListener("click", (event) => {
+  event.preventDefault();
+
+  const signinEmail = document.querySelector('#signin_email').value;
+  const signinPassword = document.querySelector('#signin_password').value;
+
+  console.log("Email:", signinEmail);
+  console.log("Password:", signinPassword);
+
+  const user = userAccounts.find(user => user.email === signinEmail && user.password === signinPassword);
+
+  if (user) {
+      closeFunction();
+      container.classList.add("display");
+      mainPage.classList.remove('display');
+      userName.innerHTML=user.name
+  } else {
+      console.log(userAccounts);
+      alert("Invalid email or password. Please try again.");
+  }
 });
 
 close.addEventListener("click", closeFunction);
@@ -75,7 +103,7 @@ const htmlQuestions = [
         options: ["<h1>", "<h6>", "<heading>", "<head>"],
         answer: "<h1>"
     },
-    // Add more HTML questions here...
+    
 ];
 
 const cssQuestions = [
@@ -120,33 +148,30 @@ const accessibilityQuestions = [
     // Add more accessibility questions here...
 ];
 
-// Function to get questions based on question type
+//get questions 
 function getQuestions(questionType) {
-  switch(questionType) {
-      case 'HTML':
-          return htmlQuestions;
-      case 'CSS':
-          return cssQuestions;
-      case 'JavaScript':
-          return javascriptQuestions;
-      case 'Accessibility':
-          return accessibilityQuestions;
-      default:
-          console.error('Invalid question type');
-          return [];
+  if(questionType=='HTML'){
+    return htmlQuestions
+  }
+  else if(questionType=='CSS'){
+    return cssQuestions;
+  }
+  else if(questionType=='JavaScript'){
+    return javascriptQuestions;
+  }
+  else{
+    return accessibilityQuestions;
   }
 }
 
-// Function to display the question based on question type and number
-// Function to display the question based on question type and number
+// display questions 
 function displayQuestion(questionType, questionNumber) {
-  frontPageMain.innerHTML = ''; // Clear previous question
+  frontPageMain.innerHTML = ''; 
 
   let questions = getQuestions(questionType);
 
-  // Check if questionNumber is within the bounds of the questions array
   if (questionNumber >= 0 && questionNumber < questions.length) {
-      // Display the question
+     
       const html = `
       <div class="front-page-main-content-left">
           <div class="font-page-main-content-left-questions">
@@ -178,37 +203,33 @@ function displayQuestion(questionType, questionNumber) {
       `;
       frontPageMain.insertAdjacentHTML("beforeend", html);
 
-      // Add event listener to the "Next" button
+    //  next btn 
       const nextQuestionBtn = document.querySelector('.questions-btn');
       nextQuestionBtn.addEventListener('click', function() {
-          // Get selected answer
+          
           const selectedOption = document.querySelector('input[name="options"]:checked');
           if (selectedOption) {
               selectedAnswers.push(selectedOption.nextElementSibling.textContent.trim());
           } else {
-              selectedAnswers.push(null); // Add null for unanswered questions
+              selectedAnswers.push(null); 
           }
 
-          // Display the next question if available
+         
           displayQuestion(questionType, questionNumber + 1);
-
-          // Check answers if all questions are answered
           if (questionNumber + 1 === questions.length) {
               checkAnswers(questionType);
           }
       });
   } else {
       console.log('No more questions');
-      checkAnswers(questionType); // Check answers if all questions are answered
+      checkAnswers(questionType); 
   }
 }
 
-// Function to handle answer checking and display result
+//  answer checking, display result
 function checkAnswers(questionType) {
   const questions = getQuestions(questionType);
   let correctCount = 0;
-
-  // Loop through selected answers array and compare with correct answers
   for (let i = 0; i < selectedAnswers.length; i++) {
       if (selectedAnswers[i] === questions[i].answer) {
           correctCount++;
@@ -216,7 +237,7 @@ function checkAnswers(questionType) {
   }
 
   // Display result
-  frontPageMain.innerHTML = ''; // Clear previous question
+  frontPageMain.innerHTML = '';
   const resultDiv = document.createElement('div');
   resultDiv.classList.add('result-container');
   resultDiv.innerHTML = `
@@ -245,13 +266,9 @@ function checkAnswers(questionType) {
     container.classList.remove('display')
   })
 }
-
-// Inside your questionType.forEach loop
 questionType.forEach(function(btn){
   btn.addEventListener('click',function(e){
       const questiontypebtn = e.currentTarget;
-
-      // Display the first question when a question type button is clicked
       displayQuestion(questiontypebtn.id, 0);
   });
 });
