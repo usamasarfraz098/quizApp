@@ -7,8 +7,7 @@ const close = document.querySelector('.close');
 const btn = document.querySelectorAll('.btn');
 const container1 = document.querySelector('.container1');
 const container= document.querySelector('.container');
-const signinEmail = document.querySelector('#signin_email');
-const signinPassword = document.querySelector('#signin_password');
+const mainPage=document.querySelector('.front-page')
 const signinBtn = document.querySelector('#signin2');
 const frontPageMain = document.querySelector('.front-page-main-content');
 const questionType = document.querySelectorAll('.front-page-right-img');
@@ -25,9 +24,28 @@ signUpButton.addEventListener("click", () => {
     console.log("usama");
 });
 
-signInButton.addEventListener("click", () => {
+signinBtn.addEventListener("click", () => {
     loginPage.classList.remove("right-panel-active");
+    const signinEmail = document.querySelector('#signin_email');
+const signinPassword = document.querySelector('#signin_password');
     console.log("usama");
+    const email = signinEmail.value;
+    const password = signinPassword.value;
+    console.log(email,password)
+
+    // Mock authentication for demonstration purposes
+    if (signinEmail.value === "usamasarfraz23@gmail.com" && signinPassword.value === "12345678") {
+        // User authenticated successfully
+        // Hide login page
+        closeFunction();
+
+        // Display front page
+
+        container.classList.add("display");
+        mainPage.classList.remove('display')
+    } else {
+        // Show error message or handle authentication failure
+        alert("Invalid email or password. Please try again.");}
 });
 
 close.addEventListener("click", closeFunction);
