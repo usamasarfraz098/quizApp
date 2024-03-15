@@ -270,10 +270,10 @@ const cssQuestions = [
       answer: "opacity"
   },
   {
-      question: "What is the correct CSS syntax for referring to an external style sheet?",
-      options: ["<link rel='stylesheet' href='mystyle.css'>", "<style src='mystyle.css'>", "<style link='mystyle.css'>", "<link src='mystyle.css'>"],
-      answer: "<link rel='stylesheet' href='mystyle.css'>"
-  },
+    question: "How do you group selectors in CSS?",
+    options: ["Separate them with commas", "Group them with curly braces", "Group them with square brackets", "Group them with parentheses"],
+    answer: "Separate them with commas"
+},
   {
       question: "Which CSS property is used to control the text alignment within an element?",
       options: ["align", "text-align", "text-style", "align-text"],
@@ -532,7 +532,7 @@ function displayQuestion(questionType, questionNumber) {
 
   let questions = getQuestions(questionType);
 
-  if (questionNumber >= 0 && questionNumber < questions.length) {
+  if (questionNumber < 15) {
      
       const html = `
       <div class="front-page-main-content-left">
@@ -541,7 +541,7 @@ function displayQuestion(questionType, questionNumber) {
               <div class="question-numbers">
                   <span class="question-numbers-text">Questions</span>
                   <span class="active-question-number">${questionNumber + 1}/</span>
-                  <span class="total-question-number">20</span>
+                  <span class="total-question-number">15</span>
               </div>
               <div class="front-page-main-content-left-question">
                   <div class="question">
@@ -615,7 +615,7 @@ function checkAnswers(questionType) {
      <div class="result-container-content-score">
       <span class="your-score">${correctCount}</span>
       <span class="slash">/</span>
-      <span class="total-score">20</span>
+      <span class="total-score">15</span>
      </div>
      <div class="btn-results"><div class="btn1">Take New Quiz</div></div>
 
